@@ -1,6 +1,6 @@
 fzf-z-widget() {
   setopt localoptions pipefail no_aliases 2> /dev/null
-  local dir="$(eval "sort -t'|' -nrk2 ${ZSHZ_DATA:-$HOME/.z} | awk -F '|' '{print \$1}'" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) +m)"
+  local dir="$(eval "sort -t'|' -nrk3 ${ZSHZ_DATA:-$HOME/.z} | awk -F '|' '{print \$1}'" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) +m)"
   if [[ -z "$dir" ]]; then
     zle redisplay
     return 0
